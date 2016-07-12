@@ -1,0 +1,17 @@
+{% extends 'BackendUchetBundle::main.html.twig' %}
+{% form_theme form 'BackendUchetBundle:Form:bootstrap_3_layout.html.twig' %}
+{% block title %}Учет расходов | Редактирование категории!{% endblock %}
+{% block body %}
+    <section>
+        <h1>Редактирование категории</h1>
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_row(form.name) }}
+        <div class="form-group">
+            {{ form_widget(form.save) }}
+            <a href="{{ path('BackendUchetBundle_category') }}" class="btn btn-danger">Отменить</a>
+        </div>
+
+        {{ form_end(form) }}
+    </section>
+
+{% endblock %}

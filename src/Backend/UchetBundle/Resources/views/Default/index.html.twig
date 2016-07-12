@@ -1,0 +1,43 @@
+{% extends 'BackendUchetBundle::main.html.twig' %}
+{% form_theme form 'BackendUchetBundle:Form:bootstrap_3_layout.html.twig' %}
+{% block title %}Учет расходов | Расходы!{% endblock %}
+{% block form %}
+    <div class="widget">
+        <h4>Добавить расход</h4>
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate','action': url('BackendUchetBundle_homepage')}}) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+{% block body %}
+    <section>
+        <h1>Расходы <span class="label label-primary pull-right">{{ costs|length }}</span></h1>
+        <div class="panel panel-default">
+
+            <!-- Table -->
+            <table class="table">
+                <tr>
+                    <th class="row-num">#</th>
+                    <th>Название</th>
+                    <th>Категория</th>
+                    <th>Сумма</th>
+                    <th>Дата</th>
+                </tr>
+
+                {% for cost in costs %}
+                     <tr>
+                        <td class="bold">{{ loop.index }}</td>
+                        <td>{{ cost.cost_name }}</td>
+                        <td>{{ cost.category_name }}</td>
+                        <td>{{ cost.sum }}</td>
+                        <td>{{ cost.date|date('d.m.Y') }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </section>
+{% endblock %}
+
+
+

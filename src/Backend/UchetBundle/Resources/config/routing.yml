@@ -1,0 +1,31 @@
+BackendUchetBundle_homepage:
+    path:     /
+    defaults: { _controller: BackendUchetBundle:Default:index }
+
+BackendUchetBundle_report:
+    path:     /report
+    defaults: { _controller: BackendUchetBundle:Default:report }
+
+default_reportmonth:
+    path:      /report/{month}
+    defaults:  { _controller: BackendUchetBundle:Default:reportmonth}
+    requirements:
+      month: \d\d
+
+BackendUchetBundle_category:
+    path:     /category
+    defaults: { _controller: BackendUchetBundle:Default:category }
+
+BackendUchetBundle_setting:
+    path:     /setting
+    defaults: { _controller: BackendUchetBundle:Default:setting }
+
+edit:
+    path:     /category/edit/{id}
+    defaults: { _controller: BackendUchetBundle:Default:edit }
+    requirements:
+          month: \d+
+
+raise:
+    path:     /raise
+    defaults: { _controller: BackendUchetBundle:Default:raise }

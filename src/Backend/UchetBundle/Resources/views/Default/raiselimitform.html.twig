@@ -1,0 +1,15 @@
+{% extends 'BackendUchetBundle::main.html.twig' %}
+{% form_theme raise_form 'BackendUchetBundle:Form:bootstrap_3_layout.html.twig' %}
+
+{% block title %}Учет расходов | Увеличение предельной суммы на месяц!{% endblock %}
+
+{% block sidebar_right %}{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Увеличение предельной суммы на месяц</h1>
+        {{ form_start(raise_form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(raise_form) }}
+        {{ form_end(raise_form) }}
+    </section>
+{% endblock %}

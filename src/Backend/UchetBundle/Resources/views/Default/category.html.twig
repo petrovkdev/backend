@@ -1,0 +1,43 @@
+{% extends 'BackendUchetBundle::main.html.twig' %}
+{% form_theme form 'BackendUchetBundle:Form:bootstrap_3_layout.html.twig' %}
+
+{% block title %}Учет расходов | Категории!{% endblock %}
+
+{% block form %}
+    <div class="widget">
+        <h4>Добавить категорию</h4>
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate','action': url('BackendUchetBundle_category') }}) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Категории <span class="label label-primary pull-right">{{ category|length }}</span></h1>
+
+        <div class="panel panel-default">
+
+            <!-- Table -->
+            <table class="table">
+                <tr>
+                    <th class="row-num">#</th>
+                    <th>Название</th>
+                    <th>Опции</th>
+                </tr>
+
+                {% for cat in category %}
+                    <tr>
+                        <td class="bold">{{ loop.index }}</td>
+                        <td>{{ cat.name }}</td>
+                        <td class="row-options">
+                            <a href="{{ path('edit', {'id': cat.id }) }}" class="btn btn-primary btn-block btn-sm" title="Редактировать"><span class="glyphicon glyphicon-edit"></span></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </section>
+
+{% endblock %}

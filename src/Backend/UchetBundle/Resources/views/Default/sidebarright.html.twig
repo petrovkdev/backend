@@ -1,0 +1,47 @@
+{% if sidebar_show %}
+    <section>
+        <div class="title">Предельная сумма на&nbsp;месяц:</div>
+        <div class="bold">{{ sum_month }} рублей</div>
+    </section>
+
+    <section>
+        <div class="title">Расходов на сумму:</div>
+        <div class="bold">{{ sum_cost }} рублей</div>
+    </section>
+
+    <section>
+        <div class="title">Остаток:</div>
+        <div class="bold">{{ balance }} рублей</div>
+    </section>
+
+    {% if msg_show %}
+        <section>
+            {% if scenario %}
+                <div class="title">
+                    <p>Предельная сумма превышена на {{ excess }} рублей.</p>
+                    <p>Увеличить предельную сумму на текущий месяц?</p>
+                    <a href="{{ path('raise') }}" class="btn btn-primary btn-block">Увеличить</a>
+                </div>
+            {% else %}
+                <div class="title">Предельная сумма превышена на {{ excess }} рублей. Доступная сумма предела на следующий месяц составляет:</div>
+                <div class="bold">{{ sum_next_month }} рублей</div>
+            {% endif %}
+        </section>
+    {% endif %}
+
+    {% if prevexcess %}
+        <section>
+            <div class="title">В прошлом месяце был превышен предел на сумму:</div>
+            <div class="bold">{{ prevexcess }} рублей</div>
+        </section>
+    {% endif %}
+
+    {% if raise and not msg_show %}
+        <section>
+            <div class="title">Предельная сумма увеличена на сумму:</div>
+            <p class="bold">{{ raise }} рублей</p>
+            <a href="{{ path('raise') }}" class="btn btn-primary btn-block">Изменить</a>
+        </section>
+    {% endif %}
+
+{% endif %}

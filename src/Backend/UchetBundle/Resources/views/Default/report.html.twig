@@ -1,0 +1,29 @@
+{% extends 'BackendUchetBundle::main.html.twig' %}
+{% block title %}Учет расходов | Отчет!{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Сводный отчет</h1>
+        <div class="panel panel-default">
+
+            <!-- Table -->
+            <table class="table">
+                <tr>
+                    <th>Месяц</th>
+                    <th>Общая сумма</th>
+                </tr>
+
+                {% for row in report %}
+                    <tr>
+                        <td><a href="{{ path('default_reportmonth', {'month': row.month }) }}">
+                               <span class="month"> {{ row.date|localizeddate('none', 'none', 'ru', null, 'LLLL') }}</span>
+                            </a></td>
+                        <td>{{ row.fullsum }}</td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+
+    </section>
+{% endblock %}

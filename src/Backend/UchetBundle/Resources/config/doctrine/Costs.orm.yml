@@ -1,0 +1,20 @@
+Backend\UchetBundle\Entity\Costs:
+    type: entity
+    table: null
+    repositoryClass: Backend\UchetBundle\Repository\CostsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        catid:
+            type: integer
+        sum:
+            type: integer
+        date:
+            type: integer
+        name:
+            type: text
+    lifecycleCallbacks: {  }

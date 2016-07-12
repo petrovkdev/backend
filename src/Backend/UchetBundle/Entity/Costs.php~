@@ -1,0 +1,111 @@
+<?php
+
+namespace Backend\UchetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Costs
+ */
+class Costs
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var int
+     */
+    private $catid;
+
+    /**
+     * @var int
+     */
+    private $sum;
+
+    /**
+     * @var int
+     */
+    private $date;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set catid
+     *
+     * @param integer $catid
+     * @return Costs
+     */
+    public function setCatid($catid)
+    {
+        $this->catid = $catid;
+
+        return $this;
+    }
+
+    /**
+     * Get catid
+     *
+     * @return integer 
+     */
+    public function getCatid()
+    {
+        return $this->catid;
+    }
+
+    /**
+     * Set sum
+     *
+     * @param integer $sum
+     * @return Costs
+     */
+    public function setSum($sum)
+    {
+        $this->sum = $sum;
+
+        return $this;
+    }
+
+    /**
+     * Get sum
+     *
+     * @return integer 
+     */
+    public function getSum()
+    {
+        return $this->sum;
+    }
+
+    /**
+     * Set date
+     *
+     * @param integer $date
+     * @return Costs
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return integer 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+}

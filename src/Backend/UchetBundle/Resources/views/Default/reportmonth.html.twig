@@ -1,0 +1,44 @@
+{% extends 'BackendUchetBundle::main.html.twig' %}
+{% block title %}Учет расходов | Расходы за {{ month|localizeddate('none', 'none', 'ru', null, 'LLLL') }}!{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Расходы за <span class="month">{{ month|localizeddate('none', 'none', 'ru', null, 'LLLL') }}</span></h1>
+        <div class="panel panel-default">
+
+            <!-- Table -->
+            <table class="table">
+                <tr>
+                    <th>Дата</th>
+                    {% for row in category %}
+                        <th>{{ row.name }}</th>
+                    {% endfor %}
+                    <th>Итого</th>
+                </tr>
+                {% for day, row in date %}
+                    <tr>
+                        <td class="bold">{{ day }}</td>
+                    {% for cat in row.category %}
+                        {% if cat|sum %}
+                            <td>{{ cat|sum }}</td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                    {% endfor %}
+                        <td class="text-primary bold">{{ row.sum_row|sum }}</td>
+                    </tr>
+                {% endfor %}
+
+                <tr>
+                    <td class="bold">Итого</td>
+                    {% for row in category %}
+                            <td class="text-primary bold">{{ row.sum_column|sum }}</td>
+                    {% endfor %}
+                    <td class="text-danger bold">{{ total|sum }}</td>
+                </tr>
+
+            </table>
+        </div>
+
+    </section>
+{% endblock %}

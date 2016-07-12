@@ -1,0 +1,14 @@
+services:
+#    backend_uchet.example:
+#        class: Backend\UchetBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+    #twig extensions
+    twig.extension.intl:
+            class: Twig_Extensions_Extension_Intl
+            tags:
+                - { name: twig.extension }
+    app.twig_extension:
+            class: Backend\UchetBundle\Twig\Extension\ArraySum
+            public: false
+            tags:
+                - { name: twig.extension }

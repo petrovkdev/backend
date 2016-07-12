@@ -1,0 +1,11 @@
+{% extends 'BackendUchetBundle::main.html.twig' %}
+{% form_theme form 'BackendUchetBundle:Form:bootstrap_3_layout.html.twig' %}
+{% block title %}Учет расходов | Настройки!{% endblock %}
+{% block body %}
+    <section>
+        <h1>Конфигурация приложения</h1>
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </section>
+{% endblock %}

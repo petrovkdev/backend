@@ -1,0 +1,47 @@
+Backend\UchetBundle\Entity\Costs:
+    properties:
+        name:
+            - NotNull:
+                message: "Поле не должно быть пустым."
+            - Type:
+                type: 'string'
+                message: 'Данные поля не соответствуют формату.'
+
+        catid:
+             - NotNull:
+                message: "Поле не должно быть пустым."
+             - Type:
+                type: 'numeric'
+                message: 'Данные поля не соответствуют формату.'
+
+        sum:
+           - NotNull:
+                message: "Поле не должно быть пустым."
+           - Type:
+                type: 'string'
+                message: 'Данные поля не соответствуют формату.'
+
+        date:
+
+            - NotNull:
+                message: "Поле не должно быть пустым."
+            - Type:
+                type: 'numeric'
+                message: 'Данные поля не соответствуют формату.'
+
+Backend\UchetBundle\Entity\Categories:
+    constraints:
+               - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+                    fields: 'name'
+                    message: 'Такая категория уже существует.'
+    properties:
+        id:
+          - Type:
+              type: 'int'
+              message: 'Данные не соответствуют формату.'
+        name:
+            - NotNull:
+                message: "Поле не должно быть пустым."
+            - Type:
+                type: 'string'
+                message: 'Данные поля не соответствуют формату.'

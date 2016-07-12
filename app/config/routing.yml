@@ -1,0 +1,3 @@
+backend_uchet:
+    resource: "@BackendUchetBundle/Resources/config/routing.yml"
+    prefix:   /
