@@ -38,6 +38,7 @@
 
 $(function(){
 
+    //datepicker
     $('.datepicker').datepicker({
         dateFormat: 'dd.mm.yy',
         regional:'ru'

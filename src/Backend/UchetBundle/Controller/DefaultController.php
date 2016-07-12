@@ -22,6 +22,7 @@ use Backend\UchetBundle\AppClass\UchetScenario;
 
 class DefaultController extends Controller
 {
+    //Главная страница
     public function indexAction(Request $request)
     {
         $cfg = Yaml::parse(file_get_contents('../src/Backend/UchetBundle/Resources/config/appconfig.yml'), false, true);
@@ -69,6 +70,7 @@ class DefaultController extends Controller
 
     }
 
+    //Страница категории
     public function categoryAction(Request $request)
     {
         $cfg = Yaml::parse(file_get_contents('../src/Backend/UchetBundle/Resources/config/appconfig.yml'), false, true);
@@ -107,9 +109,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
+    //Страница редактирования категории
     public function editAction($id, Request $request)
     {
         $cfg = Yaml::parse(file_get_contents('../src/Backend/UchetBundle/Resources/config/appconfig.yml'), false, true);
@@ -149,9 +149,7 @@ class DefaultController extends Controller
     }
 
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
+    //Страница отчета
     public function reportAction()
     {
         $cfg = Yaml::parse(
@@ -182,6 +180,7 @@ class DefaultController extends Controller
         ]);
     }
 
+    //Страница детального отчета за месяц
     public function reportmonthAction($month)
     {
         $cfg = Yaml::parse(file_get_contents('../src/Backend/UchetBundle/Resources/config/appconfig.yml'), false, true);
@@ -248,9 +247,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
+    //Страница настроек
     public function settingAction(Request $request)
     {
         $cfg = Yaml::parse(file_get_contents('../src/Backend/UchetBundle/Resources/config/appconfig.yml'), false, true);
@@ -301,6 +298,7 @@ class DefaultController extends Controller
         ]);
     }
 
+    //Страница - увеличение лимита
     public function raiseAction(Request $request)
     {
         $cfg = Yaml::parse(
@@ -360,6 +358,7 @@ class DefaultController extends Controller
         ]);
     }
 
+    //Вывод в сайдбар информации о текущем положении лимита, расходов...
     public function sidebarrightAction(Request $request)
     {
         $cfg = Yaml::parse(
